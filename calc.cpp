@@ -1,31 +1,6 @@
 #include<iostream>
 using namespace std;
-void sum(int a, int b)
-{
-    int c=a+b;
-    cout<<"the sum is:"<<c;
-}
-void mul(int a, int b)
-{
-    int c=a*b;
-    cout<<"the multiply is:"<<c;
-}
-void sub(int a, int b)
-{
-    int c=a-b;
-    cout<<"the subtraction is:"<<c;
-}
-void divi(int a, int b)
-{
-    float c=a/b;
-    cout<<"the divide is:"<<c;
-}
-void mod(int a, int b)
-{
-    int c=a%b;
-    cout<<"the modulus is:"<<c;
-}
-int fact(int n)
+long long int fact(int n)
 {
     if(n>0)
     {
@@ -35,52 +10,106 @@ int fact(int n)
     {
         return 1;
     }
+
+}
+int fib(int n)
+{
+    if(n==0)
+        return 0;
+    if(n==1)
+        return 1;
+    else
+    {
+        return fib(n-1)+fib(n-2);
+    }
+}
+void sum(int a, int b)
+{
+    int c;
+    c=a+b;
+    cout<<"the sum of the numbers are:"<<c;   
+}
+void sub(int a, int b)
+{
+    int c;
+    c=a-b;
+    cout<<"the sub of the numbers are:"<<c;
+}
+void mul(int a, int b)
+{
+    int c;
+    c=a*b;
+    cout<<"the mul of the numbers are:"<<c;
+}
+void divi(int a, int b)
+{
+    int c;
+    c=a/b;
+    cout<<"the division of the numbers are:"<<c;
+}
+void mod(int a, int b)
+{
+    int c;
+    c=a%b;
+    cout<<"the modulus of the numbers are:"<<c;
 }
 int main()
 {
-    char n;
-    cout<<"choose among +,*,-,/,%,!:\n";
-    cin>>n;
-    if(n=='+')
+    char choice;
+    cout<<"enter choices among:+, -, *, /, %, ^, #\n";
+    cin>>choice;
+    if(choice=='+')
     {
         int a,b;
-        cout<<"enter value of a and b:";
+        cout<<"enter the value of a and b:";
         cin>>a>>b;
         sum(a,b);
     }
-    if(n=='*')
+    if(choice=='-')
     {
         int a,b;
-        cout<<"enter value of a and b:";
-        cin>>a>>b;
-        mul(a,b);
-    }
-    if(n=='-')
-    {
-        int a,b;
-        cout<<"enter value of a and b:";
+        cout<<"enter the value of a and b:";
         cin>>a>>b;
         sub(a,b);
     }
-    if(n=='/')
+    if(choice=='*')
     {
         int a,b;
-        cout<<"enter value of a and b:";
+        cout<<"enter the value of a and b:";
+        cin>>a>>b;
+        mul(a,b);
+    }
+    if(choice=='/')
+    {
+        int a,b;
+        cout<<"enter the value of a and b:";
         cin>>a>>b;
         divi(a,b);
     }
-    if(n=='%')
+    if(choice=='%')
     {
         int a,b;
-        cout<<"enter value of a and b:";
+        cout<<"enter the value of a and b:";
         cin>>a>>b;
         mod(a,b);
     }
-    if(n=='!')
+    if(choice=='^')
     {
         int n;
-        cout<<"enter value of n";
+        cout<<"enter the value of n:";
         cin>>n;
-        cout<<"the fact of a no. is:"<<fact(n);
+        cout<<"the factorial is:"<<fact(n);
+
+    }
+    if(choice=='#')
+    {
+        int n,i;
+        cout<<"enter the value of n:\n";
+        cin>>n;
+        cout<<"\nthe fibonacci series is:";
+        for(i=0; i<n; i++)
+        {
+            cout<<fib(i)<<"\t";
+        }
     }
 }

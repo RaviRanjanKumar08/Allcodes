@@ -1,17 +1,38 @@
 #include<iostream>
 using namespace std;
-int main()
+void bitwise(int n, int k)
 {
-    int a[5];
-    int n=sizeof(a)/sizeof(a[0]);
-    cout<<"enter array\n";
+    int a=0,b=0,c=0;
     for(int i=0; i<n; i++)
     {
-        cin>>a[i];
+        for(int j=i+1; j<n; j++)
+        {
+            int x,y,z;
+            x=i&j;
+            y=i^j;
+            z=i|j;
+            if(x>a&&x<k)
+            {
+                a=x;
+            }
+            if(y>b&&y<k)
+            {
+                b=y;
+            }
+            if(z>c&&z<k)
+            {
+                c=z;
+            }
+
+        }
     }
-    cout<<"the reverse array is:";
-    for(int i=n-1; i>=0; i--)
-    {
-        cout<<a[i]<<"\t";
-    }
+    cout<<"the all bitwise operator is:"<<a<<"\t"<<b<<"\t"<<c;
+}
+int main()
+{
+    int n,k;
+    cout<<"enter number:";
+    cin>>n>>k;
+    bitwise(n,k);
+    return 0;
 }
